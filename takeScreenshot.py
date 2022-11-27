@@ -30,8 +30,15 @@ def screenshot():
 
 if __name__ == '__main__':
 
-    # Start screenshot as a process
-    p = Process(target=screenshot)
-    p.start()
-    p.join(timeout=120)
-    p.terminate()
+    # if interent locked, script will not be executed (no load)
+    hostname = "google.com"
+    response = os.system("ping -c 1 " + hostname)
+
+    if response == 0:
+        # Start screenshot as a process
+        p = Process(target=screenshot)
+        p.start()
+        p.join(timeout=180)
+        p.terminate()
+    else:
+        quit()
