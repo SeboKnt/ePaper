@@ -1,5 +1,7 @@
 #!/bin/bash
 
-sudo python3 ./takeScreenshot.py
-sudo ./IT8951 0 0 pika.bmp
-sudo rm pika.bmp
+path="/home/pi/ePaper"
+
+sudo python3 $path/takeScreenshot.py
+sudo $path/IT8951 0 0 pika.bmp
+sudo rm $path/pika.bmp
