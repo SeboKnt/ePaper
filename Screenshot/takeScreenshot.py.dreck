@@ -1,0 +1,43 @@
+import os
+import time
+import datetime
+import multiprocessing
+from PIL import Image
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.support.ui import WebDriverWait
+#from selenium.common.exceptions import TimeoutException
+
+url = "http://192.168.178.73:8123/dashboard-test/"
+zoom = 250
+
+def screenshot():
+    # chrome options
+    OPTIONS = Options()
+    OPTIONS.add_argument('--headless')
+    OPTIONS.add_argument('--window-size=1200x825')
+    OPTIONS.add_argument('--user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36')
+
+    browser = webdriver.Chrome(executable_path="./chromedriver", options=OPTIONS)
+    browser.get("http://192.168.178.73:8123/dashboard-test/0")
+    time.sleep(180)
+    #WebDriverWait(browser, 180).until(lambda browser: browser.execute_script('return document.readyState') == 'complete')
+    #browser.execute_script("document.body.style.zoom='250%'")
+    #time.sleep(10)
+    #browser.get_screenshot_as_file("tmp.png")
+    browser.quit()
+
+    #Image.open("tmp.png").save("pika.bmp")
+    #os.remove("tmp.png")
+    quit()
+
+if __name__ == '__main__':
+    #screenshot()
+
+    # Start screenshot as a process
+    p = multiprocessing.Process(target=screenshot, name="shot", args=())
+    p.start()
+    time.sleep(240)
+    p.terminate()
+    p.join()
+    print("Sry, had to force kill")

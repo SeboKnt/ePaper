@@ -7,7 +7,6 @@ sudo apt-get install libopenjp2-7
 
 pip3 install selenium
 
-
 sudo apt-get install automake
 
 # Install C++ SPI library for Raspberry
