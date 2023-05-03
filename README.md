@@ -14,6 +14,7 @@ sudo apt update && sudo apt upgrade -y
 sudo apt-get install libopenjp2-7
 sudo apt-get install automake
 pip3 install selenium
+pip3 install python-dotenv
 ```
 
 ## Screen
