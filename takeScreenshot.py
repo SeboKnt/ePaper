@@ -9,6 +9,7 @@ url = "http://192.168.178.73:8123/dashboard-test/0"
 path = "/home/pi/ePaper"
 
 def screenshot():
+    # Browser options
     options = Options()
     options.headless = True
     options.add_argument('--window-size=1200x825')
@@ -17,11 +18,12 @@ def screenshot():
     driver = webdriver.Chrome(f'{path}/chromedriver', options=options)
 
     driver.get(url)
-    time.sleep(80)
-    driver.execute_script("document.body.style.zoom='250%'")
+    time.sleep(80) # Time for the Ri to cope with the situation
+    driver.execute_script("document.body.style.zoom='250%'") # 
     driver.save_screenshot('tmp.png')
     driver.quit()
 
+    # converts .jpg to .bmp
     Image.open("tmp.png").save("pika.bmp")
     os.remove("tmp.png")
 
@@ -30,8 +32,8 @@ def screenshot():
 
 if __name__ == '__main__':
 
-    # if interent locked, script will not be executed (no load)
-    hostname = "google.com"
+    # checks if the webserver is online
+    hostname = "192.168.178.73"
     response = os.system("ping -c 1 " + hostname)
 
     if response == 0:
