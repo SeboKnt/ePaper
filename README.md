@@ -3,7 +3,7 @@
 
 ***a big thx to [@aceisace]( https://github.com/aceisace/Inkycal) for doing all the work***
 
-This project takes a first gen Raspberry Pi Zero WH and the Waveshare [E-ink](https://www.berrybase.de/9.7-1200x825-epaper-display-hat-fuer-raspberry-pi) display 9.7" and builds a dirty way to display browser content on the E-ink screen. The web page to be called and screenshotted can be customized in `takeScreenshot.py`.
+This project takes a first gen Raspberry Pi Zero WH and the Waveshare [E-ink](https://www.berrybase.de/9.7-1200x825-epaper-display-hat-fuer-raspberry-pi) display 9.7" and builds a dirty way to display browser content on the E-ink screen. The web page (that is called as screenshotted) can be customized in `takeScreenshot.py`.
 
 # Installation
 
@@ -49,5 +49,5 @@ make
 ## CronJob
 ```
 sudo crontab -l
-*/5 * * * * /home/pi/ePaper/Screen/IT8951 0 0 /home/pi/ePaper/Screen/pika.bmp >/dev/null 2>&1
+*/10 * * * * /bin/bash /home/pi/ePaper/run.sh >/dev/null 2>&1
 ```
