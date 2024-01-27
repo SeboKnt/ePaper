@@ -2,7 +2,7 @@ name: build & push
 
 on:
   push:
-    branches: ['master']
+    branches: ['main']
     tags: ['*']
   workflow_dispatch: {}
 
@@ -11,7 +11,7 @@ env:
     ${{
       github.event_name == 'push' && (
         github.ref_type == 'tag' ||  
-        github.ref_name == 'master'
+        github.ref_name == 'main'
       )
     }}
 
