@@ -1,8 +1,11 @@
-FROM seleniarm/standalone-chromium:latest
+FROM seleniarm/standalone-firefox:latest
 
 WORKDIR /usr/src/app
 
 USER root
+
+ENV DEBIAN_FRONTEND=noninteractive
+RUN echo 'libc6 hold' | dpkg --set-selections
 
 RUN apt-get update && apt-get install -y \
     python3-pip \

@@ -4,33 +4,27 @@ from PIL import Image
 from dotenv import load_dotenv
 from selenium import webdriver
 from multiprocessing import Process
-from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.firefox.options import Options
 
 load_dotenv()
 
 hostname = os.getenv('HOSTNAME')
 url = os.getenv('URL')
-path = os.getenv('PATH')
 
 def screenshot():
     # Browser options
     options = Options()
     options.add_argument("--headless")
-    options.add_argument("--no-sandbox")
-    options.add_argument("--disable-dev-shm-usage")
-    options.add_argument("--disable-gpu")
-    options.add_argument("--disable-software-rasterizer")
     
     # Add path to the PATH environment variable
-    os.environ["PATH"] += os.pathsep + '/usr/bin/chromedriver'
-    driver = webdriver.Chrome(options=options)
+    driver = webdriver.Firefox(options=options)
 
     driver.get(url)
     driver.execute_script("document.body.style.zoom='250%'") # 
     driver.save_screenshot('tmp.png')
     driver.quit()
 
-    # converts .jpg to .bmp
+    # converts .png to .bmp
     Image.open("tmp.png").save("pika.bmp")
     os.remove("tmp.png")
 
