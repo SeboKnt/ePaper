@@ -12,11 +12,13 @@ hostname = os.getenv('HOSTNAME')
 url = os.getenv('URL')
 
 def screenshot():
-    # Browser options
+    firefox_path = "/usr/bin/firefox"
+
+    # Browser-Optionen
     options = Options()
     options.add_argument("--headless")
-    
-    # Add path to the PATH environment variable
+    options.binary_location = firefox_path
+
     driver = webdriver.Firefox(options=options)
 
     driver.get(url)
