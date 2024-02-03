@@ -18,12 +18,13 @@ sudo apt install imagemagick
 ### Unzip
 ```
 cd driver
-unzip *
+unzip IT8951.zip
+unzip bcm2835-1.68.zip
 ```
 
 ### Install C++ SPI library for Raspberry
 ```
-cd bcm2835*
+cd bcm2835-1.68
 chmod +x configure
 ./configure
 make
@@ -39,11 +40,11 @@ make clean
 make
 ```
 
-### Show image
-`sudo ./IT8951 0 0 pika.bmp`
+### Show example image
+`sudo ./driver/IT8951 0 0 pika.bmp`
 
 ## CronJob
 ```
 sudo crontab -l
-*/5 * * * * /home/pi/ePaper/Screen/IT8951 0 0 /home/pi/ePaper/Screen/pika.bmp >/dev/null 2>&1
+*/5 * * * * /bin/bash /home/pi/ePaper/run.sh >/dev/null 2>&1
 ```

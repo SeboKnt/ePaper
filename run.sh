@@ -12,10 +12,10 @@ fi
 
 touch "$LOCKFILE"
 
-curl -o screenshot.png "$url"
-convert screenshot.png screenshot.bmp
+curl -o $path/screenshot.png "$url"
+convert $path/screenshot.png $path/pika.bmp
 
-sudo $path/IT8951 0 0 pika.bmp
+sudo $path/driver/IT8951 0 0 $path/pika.bmp
 rm $path/pika.bmp
 
 rm "$LOCKFILE"
