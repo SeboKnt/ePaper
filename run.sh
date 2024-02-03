@@ -2,7 +2,7 @@
 
 path="/home/pi/ePaper"
 LOCKFILE="$path/run.sh.lock"
-subject="http://192.168.178.73:8123/dashboard-test/0"
+subject="http://192.168.178.73:8123/dashboard-test/0?zoom=250"
 api="http://192.168.178.69:3000/api/screenshot?"
 url="${api}resX=1200&resY=825&outFormat=png&waitTime=9000&isFullPage=false&dismissModals=true&url=$subject"
 
