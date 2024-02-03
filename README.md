@@ -7,14 +7,10 @@ This project takes a first gen Raspberry Pi Zero WH and the Waveshare [E-ink](ht
 
 # Installation
 
-## Screenshot
+## Screenshot Script
 ```
 sudo apt update && sudo apt upgrade -y
-# sudo apt install chromium-browser
-sudo apt-get install libopenjp2-7
-sudo apt-get install automake
-pip3 install selenium
-pip3 install python-dotenv
+sudo apt install imagemagick
 ```
 
 ## Screen
