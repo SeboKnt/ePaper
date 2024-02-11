@@ -14,7 +14,7 @@ fi
 touch "$LOCKFILE"
 
 curl -o $path/screenshot.png "$url"
-convert $path/screenshot.png -resize 400% $path/screenshot.png
+#convert $path/screenshot.png -resize 400% $path/screenshot.png
 convert $path/screenshot.png $path/pika.bmp
 
 sudo $path/driver/IT8951/IT8951 0 0 $path/pika.bmp
